@@ -11,4 +11,4 @@ Dotfiles aka dots powered by Makefile and GNU Stow.
 
 ## Installation
 
-Symlink everything by running `make`, or individually: `make <package>`
+Symlink everything by running `make`, or individually: `make <package>`.
