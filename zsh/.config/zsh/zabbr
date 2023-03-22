@@ -1,0 +1,16 @@
+abbr nv=nvim
+abbr v=nvim
+abbr pr=paru
+abbr p=paru
+abbr md=mkdir
+abbr rd=rmdir
+abbr l=lsd
+abbr g=git
+abbr gcl="git clone --recurse-submodules"
+abbr gc="git commit"
+abbr gaa="git add --all"
+abbr gb="git branch"
+abbr gco="git checkout"
+abbr gd="git diff"
+abbr zz=clear
+abbr se=sudoedit

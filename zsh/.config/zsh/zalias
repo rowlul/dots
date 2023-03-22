@@ -1,0 +1,26 @@
+# aliases in sudo
+alias sudo="sudo "
+
+# sensible defaults
+alias ls="ls --color=auto"
+alias ll="ls -lh"
+alias la="ls -lAh"
+alias ld="ls -ld .*"
+alias lsd="lsd -lah"
+alias grep="grep --color=auto --exclude-dir={.git,.svn}"
+alias ping="ping -c 5"
+alias gdu="gdu / -i /proc,/dev,/sys,/run,/win,/ssd,/hdd"
+
+# interactive and verbose
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+
+# tar
+alias tarls="tar -tvf"
+alias untar="tar -xf"
+
+# humanize output
+alias free="free -h"
+alias du="du -h"
+alias df="df -h"

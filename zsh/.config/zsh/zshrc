@@ -1,0 +1,85 @@
+# colors
+autoload -U colors && colors
+
+# functions
+fpath=("$ZDOTDIR/functions" $fpath)
+autoload -U $fpath[1]/*(.:t)
+
+# aliases
+source "$ZDOTDIR/zalias"
+
+# completion
+autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+setopt complete_in_word
+setopt auto_list
+setopt magicequalsubst
+setopt nonomatch
+setopt notify
+setopt numericglobsort
+setopt promptsubst
+
+# bash meta delete
+autoload -U select-word-style
+select-word-style bash
+
+# binds
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
+bindkey "^[[3~" delete-char
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey "^E" abbr-expand
+
+# glob options
+setopt globdots
+unsetopt case_glob
+setopt extendedglob
+
+# history
+setopt appendhistory
+setopt histnostore
+setopt histreduceblanks
+setopt sharehistory
+setopt banghist
+setopt extendedhistory
+setopt incappendhistory
+setopt histignoredups
+setopt histignorespace
+
+HISTSIZE=20000
+SAVEHIST=10000
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+
+if [[ ! -f "$HISTFILE" ]]; then
+  mkdir -p "$HISTFILE:h" && touch "$HISTFILE"
+fi
+
+# plugin setup
+ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
+  git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
+fi
+source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
+
+ABBR_USER_ABBREVIATIONS_FILE=$ZDOTDIR/zabbr
+
+repos=(
+    sindresorhus/pure
+
+    peterhurford/up.zsh
+
+    olets/zsh-abbr
+
+    zsh-users/zsh-completions
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-history-substring-search
+    zsh-users/zsh-autosuggestions
+); plugin-load $repos
+
+# highlight abbreviations
+typeset -A ZSH_HIGHLIGHT_REGEXP
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(main regexp)
+ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_ABBREVIATIONS}}')$' fg=blue)
+ZSH_HIGHLIGHT_REGEXP+=('\<('${(j:|:)${(Qk)ABBR_GLOBAL_USER_ABBREVIATIONS}}')$' fg=blue)
