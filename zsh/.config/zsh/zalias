@@ -9,7 +9,7 @@ alias ld="ls -ld .*"
 alias lsd="lsd -lah"
 alias grep="grep --color=auto --exclude-dir={.git,.svn}"
 alias ping="ping -c 5"
-alias gdu="gdu / -i /proc,/dev,/sys,/run,/win,/ssd,/hdd"
+alias gdu="gdu -i /proc,/dev,/sys,/run,/win,/ssd,/hdd"
 
 # interactive and verbose
 alias cp="cp -iv"
