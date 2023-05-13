@@ -13,8 +13,10 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
+  "git.autorefresh": true,
+  "git.closeDiffOnOperation": true,
   "git.inputValidation": "off",
-  "terminal.integrated.persistentSessionReviveProcess": "onExit",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font",
   "telemetry.telemetryLevel": "off",
   "python.terminal.activateEnvironment": false,
@@ -43,5 +45,13 @@
     "**/obj": true,
     "out/": true,
     "vsix/": true
-  }
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "extensions.ignoreRecommendations": true,
+  "gitlens.advanced.messages": {
+    "suppressCreatePullRequestPrompt": true
+  },
+  "git.confirmSync": false,
+  "editor.minimap.enabled": false,
+  "window.restoreFullscreen": true,
 }
