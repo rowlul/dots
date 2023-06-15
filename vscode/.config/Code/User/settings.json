@@ -53,5 +53,5 @@
   },
   "git.confirmSync": false,
   "editor.minimap.enabled": false,
-  "window.restoreFullscreen": true,
+  "window.restoreFullscreen": true
 }
