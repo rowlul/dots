@@ -30,6 +30,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # default apps
 export EDITOR="nvim"
 export SUDOEDITOR="nvim"
+export PAGER="most"
 
 # path
 typeset -U path PATH
