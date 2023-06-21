@@ -24,6 +24,8 @@ export WINEPREFIX="$XDG_DATA_HOME/wine/default"
 export WINEDLLOVERRIDES=winemenubuilder.exe=d
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export W3M_DIR="$XDG_STATE_HOME/w3m"
+export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
+export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME/vagrant/aliases"
 
 # opt out of telemetry
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
