@@ -1,5 +1,6 @@
 abbr nv=nvim
 abbr v=nvim
+abbr sv="sudo -E nvim"
 abbr pr=paru
 abbr p=paru
 abbr y=yay
@@ -14,4 +15,3 @@ abbr gb="git branch"
 abbr gco="git checkout"
 abbr gd="git diff"
 abbr zz=clear
-abbr se=sudoedit
