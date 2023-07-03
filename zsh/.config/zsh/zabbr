@@ -14,4 +14,3 @@ abbr gaa="git add --all"
 abbr gb="git branch"
 abbr gco="git checkout"
 abbr gd="git diff"
-abbr zz=clear
