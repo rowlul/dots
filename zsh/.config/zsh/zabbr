@@ -2,6 +2,7 @@ abbr nv=nvim
 abbr v=nvim
 abbr pr=paru
 abbr p=paru
+abbr y=yay
 abbr md=mkdir
 abbr rd=rmdir
 abbr l=lsd
