@@ -1,0 +1,18 @@
+# Dotfile management
+alias dots="git --git-dir=$HOME/.dots/ --work-tree=$HOME"
+alias dots-plugin-update="git --git-dir=$HOME/.dots/ --work-tree=$HOME submodule update --recursive --remote"
+
+# Allow aliases in sudo
+alias sudo="sudo "
+
+# Improved UX
+alias ls="ls --color=auto -lAh"
+alias lsd="lsd -lah"
+alias grep="grep --color=auto --exclude-dir={.git,.svn}"
+alias ping="ping -c 5"
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -iv"
+alias free="free -h"
+alias du="du -h"
+alias df="df -h"

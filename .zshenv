@@ -1,0 +1,1 @@
+/home/rowlul/.config/zsh/zshenv

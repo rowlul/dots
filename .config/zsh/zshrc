@@ -1,0 +1,69 @@
+autoload -Uz colors && colors
+
+source "${ZDOTDIR}"/zalias
+
+# Get all submodules if plugin directory not exists
+[ ! -d "${ZPLUGINDIR}" ] && git --git-dir="${HOME}"/.dots/ --worktree="${HOME}" submodule update --init --recursive --remote
+
+# Autoload ./functions/*
+source "${ZPLUGINDIR}"/zfunctions/zfunctions.plugin.zsh
+
+# Completions
+source "${ZPLUGINDIR}"/zsh-completions/zsh-completions.plugin.zsh
+source "${ZPLUGINDIR}"/zsh-utils/completion/completion.plugin.zsh
+autoload -Uz compstyleinit; compstyleinit
+setopt globdots
+unsetopt case_glob
+
+# UX
+source "${ZPLUGINDIR}"/zsh-utils/history/history.plugin.zsh
+source "${ZPLUGINDIR}"/zsh-utils/utility/utility.plugin.zsh
+source "${ZPLUGINDIR}"/zsh-utils/editor/editor.plugin.zsh
+bindkey '^H' backward-kill-word
+bindkey '^[[3;5~' kill-word
+
+source "${ZPLUGINDIR}"/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source "${ZPLUGINDIR}"/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+
+ABBR_USER_ABBREVIATIONS_FILE="${ZDOTDIR}"/zabbr
+source "${ZPLUGINDIR}"/zsh-abbr/zsh-abbr.plugin.zsh
+
+source "${ZPLUGINDIR}"/zsh-utils/prompt/prompt.plugin.zsh
+prompt belak
+
+#############################################################################################################################################################################
+##### f-sy-h & zsh-abbr compat ##############################################################################################################################################
+#############################################################################################################################################################################
+chroma_single_word() {
+  (( next_word = 2 | 8192 ))
+
+  local __first_call="$1" __wrd="$2" __start_pos="$3" __end_pos="$4"
+  local __style
+
+  (( __first_call )) && { __style=${FAST_THEME_NAME}alias }
+  [[ -n "$__style" ]] && (( __start=__start_pos-${#PREBUFFER}, __end=__end_pos-${#PREBUFFER}, __start >= 0 )) && reply+=("$__start $__end ${FAST_HIGHLIGHT_STYLES[$__style]}")
+
+  (( this_word = next_word ))
+  _start_pos=$_end_pos
+
+  return 0
+}
+
+register_single_word_chroma() {
+  local word=$1
+  if [[ -x $(command -v $word) ]] || [[ -n $FAST_HIGHLIGHT["chroma-$word"] ]]; then
+    return 1
+  fi
+
+  FAST_HIGHLIGHT+=( "chroma-$word" chroma_single_word )
+  return 0
+}
+
+if [[ -n $FAST_HIGHLIGHT ]]; then
+  for abbr in ${(f)"$(abbr list-abbreviations)"}; do
+    if [[ $abbr != *' '* ]]; then
+      register_single_word_chroma ${(Q)abbr}
+    fi
+  done
+fi
+############################################################################################################################################################################
