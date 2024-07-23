@@ -19,3 +19,6 @@
 [submodule "zsh-autosuggestions"]
 	path = .local/share/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "pure"]
+	path = .local/share/zsh/plugins/pure
+	url = https://github.com/sindresorhus/pure
