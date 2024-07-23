@@ -22,6 +22,8 @@ source "${ZPLUGINDIR}"/zsh-utils/editor/editor.plugin.zsh
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
+source "${ZPLUGINDIR}"/up.zsh/up.plugin.zsh
+
 source "${ZPLUGINDIR}"/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source "${ZPLUGINDIR}"/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
