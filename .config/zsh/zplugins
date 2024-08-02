@@ -1,0 +1,19 @@
+sindresorhus/pure
+
+$ZDOTDIR/zalias
+mattmc3/zfunctions
+belak/zsh-utils path:history
+belak/zsh-utils path:utility
+belak/zsh-utils path:editor
+
+peterhurford/up.zsh
+
+zsh-users/zsh-completions path:src kind:fpath
+belak/zsh-utils path:completion
+
+zdharma-continuum/fast-syntax-highlighting
+olets/zsh-abbr
+$ZDOTDIR/zcompat
+
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
