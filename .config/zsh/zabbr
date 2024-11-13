@@ -5,5 +5,4 @@ abbr md=mkdir
 abbr rd=rmdir
 abbr l=lsd
 abbr g=git
-
-abbr se="sudo -E nvim"
+abbr se=sudoedit
